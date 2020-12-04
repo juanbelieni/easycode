@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { Text, Button, ViewPager } from '@ui-kitten/components';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -9,24 +10,25 @@ const tabs = [
     icon: '👍',
     title: 'Profissionais confiáveis',
     description:
-      'Possuímos uma curadoria eficaz, capaz de selecionar os melhores profissionais do mercado e que etendem diretamente sua demanda.',
+      'Possuímos uma curadoria eficaz, capaz de selecionar os melhores profissionais do mercado, que atenderão diretamente sua demanda.',
   },
   {
     icon: '💸',
     title: 'Cabe no seu orçamento',
     description:
-      'Não importa se é um site simples ou um até grande projeto, nós todas várias opções para que você consiga realizar seus planos.',
+      'Não importa se é um site simples ou um até grande projeto, nós temos várias opções para que você consiga realizar seus planos.',
   },
   {
     icon: '💳',
     title: 'Pague com segurança',
     description:
-      'Oferecemos meio de pagamentos seguros, para que você fique tranquilo na hora de transferir seu dinheiro.',
+      'Oferecemos um meio de pagamento seguro, para que você fique tranquilo na hora de transferir seu dinheiro.',
   },
 ];
 
 export default function AboutScreen() {
   const [selectedTab, setSelectedTab] = useState(0);
+  const navigation = useNavigation();
 
   return (
     <ScreenContainer>
@@ -59,7 +61,7 @@ export default function AboutScreen() {
       <Button
         style={styles.button}
         disabled={selectedTab !== tabs.length - 1}
-        onPress={() => {}}
+        onPress={() => navigation.navigate('Filter')}
       >
         Vamos lá
       </Button>
