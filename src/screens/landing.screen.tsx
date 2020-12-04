@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { Text, Button } from '@ui-kitten/components';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -5,6 +6,8 @@ import { StyleSheet, View } from 'react-native';
 import ScreenContainer from '../components/screen-container.components';
 
 export default function LandingScreen() {
+  const navigation = useNavigation();
+
   return (
     <ScreenContainer>
       <View style={styles.greetings}>
@@ -15,7 +18,10 @@ export default function LandingScreen() {
         </View>
         <Text style={styles.text}>o novo app de profissionasis de TI</Text>
       </View>
-      <Button appearance="outline" style={styles.button}>
+      <Button
+        style={styles.button}
+        onPress={() => navigation.navigate('About')}
+      >
         Começar
       </Button>
     </ScreenContainer>
